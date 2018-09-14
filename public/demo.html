@@ -19,6 +19,7 @@
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/tooplate-style.css">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/demo.css">
 
 </head>
 
@@ -50,41 +51,57 @@
       </div>
 
       <!-- MENU LINKS -->
-      <!-- <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#home" class="smoothScroll">Home</a></li>
+      <!-- <div class="collapse navbar-collapse"> -->
+      <!-- <ul class="nav navbar-nav"> -->
+
+
+      <!-- <li><a href="#home" class="smoothScroll">Home</a></li>
           <li><a href="#feature" class="smoothScroll">Features</a></li>
           <li><a href="#about" class="smoothScroll">About us</a></li>
           <li><a href="#pricing" class="smoothScroll">Pricing</a></li>
-          <li><a href="#contact" class="smoothScroll">Contact</a></li>
-        </ul>
+          <li><a href="#contact" class="smoothScroll">Contact</a></li> -->
+      <!-- </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" class="smoothScroll">Login</a></li>
+          <li><a href="#" class="smoothScroll">Add Room</a></li>
         </ul>
-      </div> -->
-
+      </div>  -->
     </div>
   </section>
 
 
   <!-- FEATURE -->
-  <section id="home" data-stellar-background-ratio="0.5">
+  <section id="feature" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
 
+        <div class="col-md-12 col-sm-12">
+          <div class="section-title">
+            <h1 class="white-text">Add Room</h1>
+          </div>
+        </div>
         <div class="col-md-4 col-sm-4">
-          <a href="" data-toggle="modal" data-target="#exampleModal">
-            <div class="white-border">
-              <h1><i class="fa fa-plus white-text"></h1></i>
-              <h2 class="white-text"> ADD A ROOM</h2>
+          <!-- <form> -->
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label class="white-text" for="inlineFormInput">Select Room:</label>
+              <select id="inputState" class="form-control">
+                <option selected>Kitchen</option>
+                <option>Dining Room</option>
+                <option>Master Bedroom</option>
+                <option>Other</option>
+              </select>
             </div>
-          </a>
+            <br>
+            <div class="col-auto">
+              <button onclick="myCreateFunction()" class="btn btn-primary mb-2">Submit</button>
+            </div>
+          </div>
+          <!-- </form> -->
         </div>
-        <div class="col-md-8 col-sm-12 white-text">
-          <table id="myTable"></table>
+        <div class="col-md-4 col-sm-4">
+          <table id="myTable" class="white-text"></table>
         </div>
-
       </div>
     </div>
   </section>
@@ -97,16 +114,19 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h3 class="modal-title" id="exampleModalLabel">Select Room to Add</h3>
+          <h3 class="modal-title" id="exampleModalLabel">Enter Items to Add</h3>
         </div>
         <div class="modal-body">
-          <form id="newRoom" action="submit-new-room">
-            <input  type="checkbox" name="room" value="Kitchen" checked=""> Kitchen<br>
-            <input type="checkbox" name="room" value="Bedroom" checked=""> Bedroom<br>
+          <form id="newRoom" autocomplete="off" action="submit-new-room">
+              <div class="autocomplete" style="width:300px;">
+                  <input id="myInput" type="text" name="myCountry" placeholder="Country">
+                </div>
+            <!-- <input type="checkbox" name="room" value="Kitchen" checked=""> Kitchen<br> -->
+            <!-- <input type="checkbox" name="room" value="Bedroom" checked=""> Bedroom<br> -->
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="myCreateFunction()" data-dismiss="modal">Add</button>
+          <button type="button" class="btn btn-secondary" onclick="addItemToTable()" data-dismiss="modal">Add</button>
         </div>
       </div>
     </div>
@@ -146,7 +166,16 @@
   <script src="js/smoothscroll.js"></script>
   <script src="js/custom.js"></script>
   <script src="js/demopage.js"></script>
+  <script src="js/autocomplete.js"></script>
+  <script>
+  $(function(){
+    
+autocomplete(document.getElementById("myInput"), countries);
 
+// jQuery methods go here...
+
+});
+  </script>
 
 </body>
 

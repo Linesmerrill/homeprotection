@@ -1,12 +1,13 @@
+var Rooms = [];
+
 function myCreateFunction() {
   var table = document.getElementById("myTable");
-  var values = [];
-  $.each($('#newRoom').serializeArray(), function(i, field) {
-    values.push(field.value)
-    row = table.insertRow(i);
-    var cell = row.insertCell(i%1);
-    cell.innerHTML = field.value
-  });
+  var inputValue = document.getElementById("inputState");
+  row = table.insertRow(-1);
+  var cell = row.insertCell(-1);
+  // cell.className = "clickable-row"
+  // cell.innerHTML = inputValue.options[inputValue.selectedIndex].value
+  cell.innerHTML = '<a data-toggle="modal" data-target="#exampleModal">' + inputValue.options[inputValue.selectedIndex].value + '</a>'
 }
 
 function myDeleteFunction() {
